@@ -71,4 +71,8 @@ public class ItemPedido {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public BigDecimal getvalor() {
+        return precoUnitario.multiply(new BigDecimal(quantidade));
+    }
 }

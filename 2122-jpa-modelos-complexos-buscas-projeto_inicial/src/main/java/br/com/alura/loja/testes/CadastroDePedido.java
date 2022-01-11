@@ -9,6 +9,7 @@ import br.com.alura.loja.util.JPAUtil;
 
 import javax.persistence.EntityManager;
 import java.math.BigDecimal;
+import java.util.List;
 
 public class CadastroDePedido {
 
@@ -48,10 +49,13 @@ public class CadastroDePedido {
 
         pedido.adicionarItem(itemPedido);
 
-
-
-
         em.getTransaction().commit();
+
+        BigDecimal totalVendido = pedidoDAO.valorTotalVendido();
+
+        List<RelatoriodeVendasVo> relatorio = pedidoDAO.relatioriodeVenda();
+        relatorio.forEach(relatoriodeVendasVo -> System.out.println(relatoriodeVendasVo.toString()));
+        System.out.println(totalVendido);
         em.close();
 
 

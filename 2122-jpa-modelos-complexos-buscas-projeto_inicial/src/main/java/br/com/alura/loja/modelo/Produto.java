@@ -21,7 +21,7 @@ public class Produto {
 
 
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Categoria categoria;
 	
 	public Produto() {

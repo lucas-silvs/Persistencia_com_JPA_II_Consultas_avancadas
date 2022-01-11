@@ -56,7 +56,13 @@ public class CadastroDePedido {
         List<RelatoriodeVendasVo> relatorio = pedidoDAO.relatioriodeVenda();
         relatorio.forEach(relatoriodeVendasVo -> System.out.println(relatoriodeVendasVo.toString()));
         System.out.println(totalVendido);
+
+        Pedido pedido1 = pedidoDAO.buscaPedidoComCliente(1l);
+
         em.close();
+
+        System.out.println(pedido1.getCliente().getNome());
+
 
 
 
